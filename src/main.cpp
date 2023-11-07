@@ -86,12 +86,12 @@ void setup() {
   pAdvertising->setMinPreferred(0x12);
   BLEDevice::startAdvertising();
   // writeStringToEEPROM(0,Default);
-  // EEPROM.write(12,0);
-  esp_sleep_enable_ext0_wakeup(GPIO_NUM_2, 1);
-  // esp_wake_deep_sleep();
-  attachInterrupt(2,IRS,FALLING);
-  // ++isSleep;
-  Serial.println("Boot number: " + String(isSleep));
+  // // EEPROM.write(12,0);
+  // esp_sleep_enable_ext0_wakeup(GPIO_NUM_2, 1);
+  // // esp_wake_deep_sleep();
+  // attachInterrupt(2,IRS,FALLING);
+  // // ++isSleep;
+  // Serial.println("Boot number: " + String(isSleep));
   Serial.print("EEPROM hiện tại là ");
   Serial.print(readStringFromEEPROM(0,11));Serial.print("    ");
   Serial.print(EEPROM.read(12));
@@ -106,7 +106,7 @@ void loop() {
     esp_deep_sleep_start();
     Serial.println("This will never be printed");
   }else { // thức
-      esp_wake_deep_sleep();
+      // esp_wake_deep_sleep();
     Serial.println("wake up");
     if(tmpConnected  && !trueConnected){
       if(isFirstDevice()){
